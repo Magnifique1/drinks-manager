@@ -16,7 +16,7 @@ class DrinksController extends Controller
         select id,m_cat_id, msc_name, msc_order from (
         SELECT *, (select count(*) from menus_items b where b.msc_id = a.id) as tIC
         FROM menus_sub_cat a
-        )x where tIC > 0 order by  msc_name
+        )x order by  msc_name
         ");
 
         $allMenuItems = DB::select("
@@ -41,7 +41,7 @@ class DrinksController extends Controller
         select id,m_cat_id, msc_name, msc_order from (
         SELECT *, (select count(*) from menus_items b where b.msc_id = a.id) as tIC
         FROM menus_sub_cat a
-        )x where tIC > 0 order by  msc_name
+        )x order by  msc_name
         ");
 
         $allMenuItems = DB::select("

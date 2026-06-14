@@ -56,13 +56,23 @@
                                 </div>
 
                                 <div class="mb-3">
+                                    <label for="proLogicItemCode" class="form-label">ProLogic Item Code <span style="color: red">(PLEASE CONTACT COST CONTROLLER FOR CODE)</span></label>
+                                    <input type="text" class="form-control" id="proLogicItemCode" name="proLogicItemCode" required>
+                                </div>
+
+                                <div class="mb-3">
                                     <label for="priceOne" class="form-label">Price Per Glass / Tot</label>
                                     <input type="number" min="0" class="form-control" id="priceOne" name="priceOne" required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="priceTwo" class="form-label">Price Per Bottle</label>
+                                    <label for="priceTwo" class="form-label">Original Price Per Bottle</label>
                                     <input type="number" min="0" class="form-control" id="priceTwo" name="priceTwo" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="discPrice" class="form-label">Discounted Price Per Bottle <span style="color: red">(leave 0 if there is no discounted price)</span></label>
+                                    <input type="number" min="0" class="form-control" id="discPrice" name="discPrice" value="0" required>
                                 </div>
 
                             </div>
@@ -105,12 +115,13 @@
             <thead>
             <tr>
                 <th>Name</th>
-{{--                <th>Cat 1</th>--}}
+                <th>ProLogic Code</th>
                 <th>Category</th>
 {{--                <th>Desc 1</th>--}}
 {{--                <th>Desc 2</th>--}}
                 <th>Gls/Tot</th>
                 <th>Bottle</th>
+                <th>Discounted Price</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -118,12 +129,13 @@
             @foreach($allMenuItems as $aMI)
                 <tr>
                     <td>{{$aMI->item_name}}</td>
-{{--                    <td>{{$aMI->cat_name}}</td>--}}
+                    <td>{{$aMI->pro_logic_item_code}}</td>
                     <td>{{$aMI->msc_name}}</td>
 {{--                    <td>{{$aMI->item_desc_one}}</td>--}}
 {{--                    <td>{{$aMI->item_desc_two}}</td>--}}
                     <td>{{number_format($aMI->item_price_one)}}</td>
                     <td>{{number_format($aMI->item_price_two)}}</td>
+                    <td>{{number_format($aMI->disc_price)}}</td>
 
                     <td>
                         <div class="btn-group" role="group">
@@ -181,6 +193,11 @@
                                     </div>
 
                                     <div class="mb-3">
+                                        <label for="proLogicItemCode" class="form-label">ProLogic Item Code <span style="color: red">(PLEASE CONTACT COST CONTROLLER FOR CODE)</span></label>
+                                        <input type="text" class="form-control" id="proLogicItemCode" name="proLogicItemCode" value="{{$aMI->pro_logic_item_code}}" required>
+                                    </div>
+
+                                    <div class="mb-3">
                                         <label for="priceOne" class="form-label">Price Per Glass / Tot</label>
                                         <input type="number" min="0" class="form-control" id="priceOne" name="priceOne" value="{{$aMI->item_price_one}}">
                                     </div>
@@ -188,6 +205,11 @@
                                     <div class="mb-3">
                                         <label for="priceTwo" class="form-label">Price Per Bottle</label>
                                         <input type="number" min="0" class="form-control" id="priceTwo" name="priceTwo" value="{{$aMI->item_price_two}}">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="discPrice" class="form-label">Discounted Price Per Bottle <span style="color: red">(leave 0 if there is no discounted price)</span></label>
+                                        <input type="number" min="0" class="form-control" id="discPrice" name="discPrice" value="{{$aMI->disc_price}}">
                                     </div>
 
                                 </div>

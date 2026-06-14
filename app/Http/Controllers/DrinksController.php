@@ -20,7 +20,7 @@ class DrinksController extends Controller
         ");
 
         $allMenuItems = DB::select("
-        SELECT mi.id, item_name, item_desc_one, item_desc_two, item_price_one, item_price_two, msc_name, cat_name
+        SELECT mi.id, item_name, item_desc_one, item_desc_two, item_price_one, item_price_two, msc_name, cat_name,disc_price,pro_logic_item_code
         FROM menus_items mi
         INNER JOIN menus_sub_cat msc on mi.msc_id = msc.id
         INNER JOIN menus_cat mc on msc.m_cat_id = mc.id
@@ -45,7 +45,7 @@ class DrinksController extends Controller
         ");
 
         $allMenuItems = DB::select("
-        SELECT mi.id, item_name, item_desc_one, item_desc_two, item_price_one, item_price_two, msc_name, cat_name
+        SELECT mi.id, item_name, item_desc_one, item_desc_two, item_price_one, item_price_two, msc_name, cat_name,disc_price,pro_logic_item_code
         FROM menus_items mi
         INNER JOIN menus_sub_cat msc on mi.msc_id = msc.id
         INNER JOIN menus_cat mc on msc.m_cat_id = mc.id
@@ -67,6 +67,8 @@ class DrinksController extends Controller
         $descTwo = $request->input('descTwo');
         $priceOne = $request->input('priceOne');
         $priceTwo = $request->input('priceTwo');
+        $discPrice = $request->input('discPrice');
+        $proLogicItemCode = $request->input('proLogicItemCode');
 
         DB::table('menus_items')->insert([
             'msc_id' => $drinkCat,
@@ -76,6 +78,8 @@ class DrinksController extends Controller
             'item_currency' => 'RWF',
             'item_price_one' => $priceOne,
             'item_price_two' => $priceTwo,
+            'disc_price' => $discPrice,
+            'pro_logic_item_code' => $proLogicItemCode,
         ]);
 
         return redirect()->route('index');
@@ -92,17 +96,23 @@ class DrinksController extends Controller
         $descTwo = $request->input('descTwo');
         $priceOne = $request->input('priceOne');
         $priceTwo = $request->input('priceTwo');
+        $discPrice = $request->input('discPrice');
+        $proLogicItemCode = $request->input('proLogicItemCode');
+
 
         DB::table('menus_items')
             ->where('id', $drinkID)
             ->update([
-            'item_name' => $drinkName,
-            'item_desc_one' => $descOne,
-            'item_desc_two' => $descTwo,
-            'item_currency' => 'RWF',
-            'item_price_one' => $priceOne,
-            'item_price_two' => $priceTwo,
-        ]);
+                'item_name' => $drinkName,
+                'item_desc_one' => $descOne,
+                'item_desc_two' => $descTwo,
+                'item_currency' => 'RWF',
+                'item_price_one' => $priceOne,
+                'item_price_two' => $priceTwo,
+                'disc_price' => $discPrice,
+                'pro_logic_item_code' => $proLogicItemCode,
+
+            ]);
 
         return redirect()->route('index');
 

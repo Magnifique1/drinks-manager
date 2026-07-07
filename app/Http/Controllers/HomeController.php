@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -94,6 +95,8 @@ class HomeController extends Controller
             'item_price_two' => $priceTwo,
             'disc_price' => $discPrice,
             'pro_logic_item_code' => $proLogicItemCode,
+            'created_by' => Auth::id(),
+            'created_at' => now(),
         ]);
 
         return redirect()->route('index');
@@ -124,6 +127,8 @@ class HomeController extends Controller
                 'item_price_two' => $priceTwo,
                 'disc_price' => $discPrice,
                 'pro_logic_item_code' => $proLogicItemCode,
+                'updated_by' => Auth::id(),
+                'updated_at' => now(),
 
             ]);
 
@@ -139,6 +144,7 @@ class HomeController extends Controller
         DB::table('menus_items')
             ->where('id', $drinkID)
             ->update([
+                'deleted_by' => Auth::id(),
                 'deleted_at' => now(),
                 'deleted_reason' => $deleteReason,
             ]);

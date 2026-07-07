@@ -129,8 +129,8 @@
 
                                 <td>
                                     <div class="btn-group" role="group">
-                                        <button type="button" class="btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editItems-{{$aMI->id}}">Edit</button>
-                                        <button type="button" class="btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteItem-{{$aMI->id}}">Delete</button>
+                                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editItems-{{$aMI->id}}">Edit</button>
+                                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteItem-{{$aMI->id}}">Delete</button>
 
 {{--                                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">--}}
 {{--                                            Action--}}

@@ -139,20 +139,23 @@
 
                     <td>
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                Action
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editItems-{{$aMI->id}}">Edit</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteItem-{{$aMI->id}}">Delete</button>
-                                </li>
-                            </ul>
+
+                            <button type="button" class="btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editItems-{{$aMI->id}}">Edit</button>
+                            <button type="button" class="btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteItem-{{$aMI->id}}">Delete</button>
+
+{{--                            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">--}}
+{{--                                Action--}}
+{{--                            </button>--}}
+{{--                            <ul class="dropdown-menu">--}}
+{{--                                <li>--}}
+{{--                                    <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editItems-{{$aMI->id}}">Edit</button>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteItem-{{$aMI->id}}">Delete</button>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
                         </div>
                     </td>
-
 
                 </tr>
 
